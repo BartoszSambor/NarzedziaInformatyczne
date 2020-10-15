@@ -11,7 +11,7 @@ int main()
     }else if (k=='k'){
         printf("%d\n",s-273);
     } else {
-        printf("B³¹d");
+        printf("Blad");
     }
     return 0;
 }
