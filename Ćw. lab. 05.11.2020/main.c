@@ -49,7 +49,7 @@ void zadanie3(){
     size_t k = 10000000000LU;
     int *c = malloc(k);
     if (NULL == c){
-        printf("%s", "Nie uda³o siê");
+        printf("%s", "Nie udaÂ³o siÃª");
     }
     free(c);
 }
