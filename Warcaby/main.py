@@ -1,8 +1,4 @@
 import time
-import threading
-
-
-results = [0 for _ in range(20)]
 
 
 def print_board(b):
