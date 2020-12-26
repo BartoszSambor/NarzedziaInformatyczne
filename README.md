@@ -1,2 +1,2 @@
-# Narzędzia Informatyczne
+# Podstawy programowania
 Repozytorium dla przedmiotu Podstawy Programowania
