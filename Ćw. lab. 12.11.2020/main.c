@@ -26,14 +26,14 @@ void zwalnianie(int** tab, int size){
     free(tab);
 }
 
-void suma(int** a, int** b, int x, int y){
-    int** w[x][y];
+int** suma(int** a, int** b, int x, int y){
+    int** w = zadanie2(x,y);
+    w[0][0] = 10;
     for(int i = 0; i < x; ++i){
         for(int j = 0; j < y; ++j){
             w[i][j] = a[i][j] + b[i][j];
         }
     }
-   // printf("%d", w[1][1]);
     return w;
 }
 
@@ -42,13 +42,14 @@ char* zadanie3(char** tab){
 }
 
 char* zadanie4(char* wyrazy[], int size){
-    char zdanie[100] = {};
-    for(int i = 0; i < size; ++i){
+    char *zdanie = malloc(sizeof(char)*100);
+    strcpy(zdanie, wyrazy[0]);
+    strcat(zdanie, " ");
+    for(int i = 1; i < size; ++i){
         strcat(zdanie, wyrazy[i]);
         strcat(zdanie, " ");
     }
     return zdanie;
-}
 
 int main()
 {
