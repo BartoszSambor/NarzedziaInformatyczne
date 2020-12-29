@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void swap(int* a, int* b){
     int c = *a;
@@ -14,10 +15,8 @@ struct Employee{
 };
 
 struct Employee* findEmployee(struct Employee empls[], char name[], int num){
-
     for(int i = 0; i < num; ++i){
-        printf("%s\n", empls[i].surname);
-        if(empls[i].surname == name){
+        if(strcmp(empls[i].surname, name) == 0){
             return(&empls[i]);
         }
     }
@@ -46,6 +45,7 @@ int main()
     swap(w1,w2);
     printf("%d %d\n", z1,z2);
 
+    /*
     int* l;
     const int b = 11;
     l = (int*)&b;
@@ -57,14 +57,14 @@ int main()
     g = &h;
     f = &g;
     **f = 50;
-    printf("%d\n", **f);
+    printf("%d\n", **f);*/
 
-    /*mamy wskaŸnik do pocz¹tku i koñca tablicy oblicz ile elem:
+    /*mamy wskaÅ¸nik do poczÂ¹tku i koÃ±ca tablicy oblicz ile elem:
       (od - do)  bez dzielenia przez rozmiar, bez *  */
-    /* ró¿nice const* int w1 a const int* w1 a const* int* w1/*/
+    /* rÃ³Â¿nice const* int w1 a const int* w1 a const* int* w1/*/
 
-    void* t[10];
+    /*void* t[10];
     void* t2 = t+10;
-    printf("%d %d\n", t, t2);
+    printf("%d %d\n", t, t2);*/
     return 0;
 }
