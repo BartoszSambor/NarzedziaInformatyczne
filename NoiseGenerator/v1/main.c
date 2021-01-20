@@ -49,7 +49,7 @@ float noiseRecursive(int x, int y, float density, int depth, int seed){
     for(int i = 0; i < depth; ++i){
         float xFloat = (float)x / density;
         float yFloat = (float)y / density;
-        result += (noise(xFloat, yFloat, seed)-128) * value;
+        result += (noise(xFloat, yFloat, seed) - 128) * value;
         density *= 2;
         value /= 2;
     }
@@ -82,7 +82,7 @@ int main(void)
             buffer[index][2] = value;
             index++;
         }
-        (void) fwrite(buffer, 1024 * 3, 1, fp);
+        fwrite(buffer, 1024 * 3, 1, fp);
         index = 0;
     }
     fclose(fp);
