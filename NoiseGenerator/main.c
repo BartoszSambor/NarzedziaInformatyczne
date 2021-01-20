@@ -18,7 +18,7 @@ static int RandomNumbers[] = {87, 169, 59, 126, 149, 20, 47, 253, 67, 168, 17, 2
                       224, 32, 0, 102, 9, 147, 134, 186, 41, 58, 183, 223, 43, 138, 8, 79, 230, 133, 82, 235};
 
 int randomNumber(int x, int y, int seed){
-    return (RandomNumbers[(x + RandomNumbers[y + seed])%256]);
+    return (RandomNumbers[(x + RandomNumbers[(y + seed) % 256]) % 256]);
 }
 
 float interpolate(float x, float y, float s){
