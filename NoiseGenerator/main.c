@@ -22,7 +22,7 @@ int randomNumber(int x, int y, int seed){
 }
 
 float interpolate(float x, float y, float s){
-    return (x + (y - x) * (s * s * (3 - 2 * s)));
+    return (x + (y - x) * (s * s * (3.0f - 2.0f * s)));
 }
 
 float noise(float x, float y, int seed){
