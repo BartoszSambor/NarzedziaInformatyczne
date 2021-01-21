@@ -2,20 +2,11 @@
 #include <stdlib.h>
 #include "Noise.h"
 
-/*char** getArray(int i, int j){ //dont work
-    char** tab = malloc(sizeof(char*)*i);
-    for(int k = 0; k < j; ++k){
-        tab[k] = malloc(sizeof(char)*(**tab));
-    }
-    return tab;
-}*/
-//currently only 1024x1024 size work :(
 
 int writeNoiseToFile(char filename[], int SIZEX, int SIZEY, int mode, float density, int depth, int seed){
     FILE *fp = fopen(filename, "wb");
     fprintf(fp, "P6\n%d %d\n255\n", SIZEX, SIZEY);
-    char buffer[1024][3];
-    //char** buffer = getArray(1024, 3);
+    char *buffer = malloc(SIZEX * 3 * sizeof(char));
     int index = 0;
 
     for (int y = 0; y < SIZEY; ++y)
@@ -29,12 +20,12 @@ int writeNoiseToFile(char filename[], int SIZEX, int SIZEY, int mode, float dens
                 value = (char) noiseSimpleRecursive(x, y, density, depth, seed);
             }
 
-            buffer[index][0] = value;
-            buffer[index][1] = value;
-            buffer[index][2] = value;
+            buffer[index * 3] = value;
+            buffer[index * 3 + 1] = value;
+            buffer[index * 3 + 2] = value;
             index++;
         }
-        fwrite(buffer, 1024 * 3, 1, fp);
+        fwrite(buffer, SIZEX * 3, 1, fp);
         index = 0;
     }
     free(buffer);
