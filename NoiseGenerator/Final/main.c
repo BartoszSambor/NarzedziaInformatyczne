@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include "Noise.h"
 
-char** getArray(int i, int j){ //dont work
+/*char** getArray(int i, int j){ //dont work
     char** tab = malloc(sizeof(char*)*i);
     for(int k = 0; k < j; ++k){
         tab[k] = malloc(sizeof(char)*(**tab));
     }
     return tab;
-}
+}*/
+//currently only 1024x1024 size work :(
 
 int writeNoiseToFile(char filename[], int SIZEX, int SIZEY, int mode, float density, int depth, int seed){
     FILE *fp = fopen(filename, "wb");
